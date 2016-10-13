@@ -1,0 +1,36 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <%= form_for :session, url: login_path do |f| %>
+      <h2><%= t(".login") %></h2>
+      <hr class="colorgraph">
+      <div class="form-group">
+        <%= f.text_field :email, class: "form-control input-lg", 
+          placeholder: t(".label_email") %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class: "form-control input-lg", 
+          placeholder: t(".label_password") %>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-3 col-md-3">
+          <button id="button-checkbox" type="button" 
+            class="btn btn-default" value="0">
+            <i class="state-icon glyphicon glyphicon-unchecked"></i> 
+            <%= t(".remember_me") %>
+          </button>
+          <%= f.check_box :remember_me, class: :hidden %>
+        </div>
+      </div>
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <%= f.submit t(".login"), class: "btn btn-primary btn-block btn-lg" %>
+        </div>
+        <div class="col-xs-12 col-md-6"><%= t(".dont_have_account") %>
+          <%= link_to t(".label_sign_up"), "#" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

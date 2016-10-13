@@ -1,0 +1,14 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <%= link_to t(".link_word_list"), "#", class: "btn btn-primary"%>
+    <%= link_to t(".link_do_lesson"), "#", class: "btn btn-primary"%>
+  </div>
+</div>
