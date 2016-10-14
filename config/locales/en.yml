@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: Framgia E-Learning System
+  hello: Hello Everyone
+  description: We are professional system
+  join_now: Join Now
+  professional: Professional
+  convenient: Convenient
+  rapidly: Rapidly
+  useful: Useful
+  search_holder: Enter your search term...
+  search_hint: Click to start searching
+  about: Framgia E-Learning System
+  contact: E-Learning@framgia.com
+  user: User
+  hone: Home
+  about: about
+  contact: contact
+  login: login
+  logout: Logout
