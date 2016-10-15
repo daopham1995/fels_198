@@ -33,11 +33,15 @@ en:
     login_success: "Welcome to the e-learning app!"
     login_fail: "Invalid email/password combination"
     find_user_fail: "we can not find user"
+    find_category_fail: "we can not find category!"
     logged_in_user: "Please log in."
     error: "error"
     denied_user: "User doesn't have permission to access this page"
     delete_user_success: "Deleted user success!"
     delete_user_fail: "Failed to delete user!"
+    delete_category_fail: "Failed to delete category!"
+    category_created: "Category deleted!"
+    create_category_success: "Category created successfully"
   users:
     name: name
     email: Email
@@ -56,3 +60,16 @@ en:
         created_at: "Created at:"
         delete: "Delete"
         ask_before_delete: "You sure?"
+    categories:
+      index:
+        title: "All category"
+        created_at: "Created at:"
+        delete: "Delete"
+        add_new_category: "Add new category"
+      category:
+        ask_before_delete: "You sure?"
+      form:
+        new_category: "Add category"
+      new:
+        title: "New category"
+        
