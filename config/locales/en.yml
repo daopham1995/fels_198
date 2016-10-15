@@ -17,11 +17,13 @@ en:
   contact: contact
   login: login
   logout: Logout
+  manage_category: "Manage category"
+  manage_user: "Manage user"
   
   sessions:
     new:
-      login: "Log in"
       title: "Log in"
+      login: "Log in"
       remember_me: "Remember me"
       dont_have_account: "Don't have account?"
       label_email: "Email"
@@ -33,7 +35,17 @@ en:
     find_user_fail: "we can not find user"
     logged_in_user: "Please log in."
     error: "error"
+    denied_user: "User doesn't have permission to access this page"
+    delete_user_success: "Deleted user success!"
+    delete_user_fail: "Failed to delete user!"
   users:
     show:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
+  admin:
+    users:
+      index:
+        title: "All user"
+        created_at: "Created at:"
+        delete: "Delete"
+        ask_before_delete: "You sure?"
