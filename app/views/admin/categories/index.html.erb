@@ -1,0 +1,13 @@
+<% provide :title, t(".title") %>
+<div align="center">
+  <%= link_to t(".add_new_category"), new_admin_category_path,
+    class: "btn btn-primary" %>
+</div>
+<ul class="users">
+  <% @categories.each do |category| %>
+    <li>
+      <%= render category %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @categories %>
