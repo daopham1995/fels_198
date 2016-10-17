@@ -19,7 +19,7 @@ en:
   logout: Logout
   manage_category: "Manage category"
   manage_user: "Manage user"
-  
+
   sessions:
     new:
       title: "Log in"
@@ -39,6 +39,13 @@ en:
     delete_user_success: "Deleted user success!"
     delete_user_fail: "Failed to delete user!"
   users:
+    name: name
+    email: Email
+    password: Password
+    password_confirm: Password_confirmation
+    create_account: Create my account
+    signup: Signup
+    login_now: Login now
     show:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
