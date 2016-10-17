@@ -4,5 +4,5 @@ class Lesson < ApplicationRecord
   belongs_to :level
 
   has_many :results, dependent: :destroy
-  has_many :words, through :results
+  has_many :words, through: :results
 end

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   private
   def find_user
-    @user= User.find_by_id params[:id]
+    @user= User.find_by id: params[:id]
     unless @user
       flash[:danger] = t "flash.find_user_fail"
       redirect_to root_path
