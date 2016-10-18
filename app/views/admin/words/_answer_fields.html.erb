@@ -1,0 +1,9 @@
+<p class = "fields">
+  <div class="row">
+   <%= f.label :answer %><br/>
+    <div class="col-md-6"><%= f.text_field :content %></div>
+    <div class="col-md-3"><%= f.check_box :is_correct %></div>
+    <div class="col-md-3"><%= f.hidden_field :_destroy %>
+      <%= link_to t(".remove_answer"), "#", class: "remove_fields" %></div>
+  </div>
+</p>

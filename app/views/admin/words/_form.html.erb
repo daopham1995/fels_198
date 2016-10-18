@@ -1,0 +1,22 @@
+<%= form_for [:admin, @word] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :question %>
+  <%= f.text_field :question, class: "form-control" %>
+  <% if @category_id.present? || @word.category_id.present? %>
+    <%= f.hidden_field :category_id, value: @category_id  || @word.category_id %>
+  <% else %>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, @view_word.categories, {}, class: "form-control" %>
+  <% end %>
+  <%= f.label :levels %>  
+  <%= f.select :levels, options_for_select(
+    @view_word.levels.collect {|l| l[0]}), {}, class: "form-control" %>
+  <div id ="answer_field">
+    <%= f.fields_for :answers do |builder| %>
+      <%= render "answer_fields", f: builder %>
+    <% end %>
+    <%= link_to_add_fields t(".more_answer"), f, :answers %>
+  </div>
+  <input type="hidden" value="3" class="number_answer">
+  <%= f.submit t(".new_word"), class: "btn btn-primary" %>
+<% end %>

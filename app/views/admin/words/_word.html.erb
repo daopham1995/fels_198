@@ -1,12 +1,15 @@
 <li>
   <div class="col-md-2">
-    <%= link_to category.name, admin_category_path(category) %>
+    <%= link_to word.question, "#" %>
   </div>
   <div class="col-md-4">
-    <%= t ".created_at" %> : <%= l category.created_at, format: :long %>
+    <%= t ".created_at" %> : <%=  word.created_at.strftime t ".time_default" %>
   </div>
   <div class="col-md-2">
-    <%= link_to t(".delete"), admin_category_path(category),
+    <%= word.levels %>
+  </div>
+  <div class="col-md-2">
+    <%= link_to t(".delete"), "#",
       class: "btn btn-xs btn-danger",method: :delete,
       data: {confirm: t(".ask_before_delete")} %>
   </div>

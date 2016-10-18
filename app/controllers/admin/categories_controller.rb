@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
-  before_action :find_category, only: :destroy
+  before_action :find_category, only: [:destroy, :show]
 
   def index
     @categories = Category.paginate page: params[:page],
@@ -27,6 +27,11 @@ class Admin::CategoriesController < ApplicationController
       flash[:danger] = t "flash.delete_category_fail"
     end
     redirect_to admin_categories_path
+  end
+
+  def show
+    @words = @category.words .paginate page: params[:page],
+      per_page: Settings.per_page_words
   end
 
   private
