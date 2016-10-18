@@ -1,0 +1,42 @@
+<% provide :title, t("users.edit") %>
+<% provide :button_text, t("save_change") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2><%= t "users.edit" %></h2>
+    <%= form_for @user do |f| %>
+      <hr class="colorgraph">
+      <%= render "shared/error_messages", object: @user %>
+
+      <div class="form-group">
+        <%= f.text_field :name, class: "form-control input-lg",
+         placeholder: t("users.name") %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :email, disabled: true, class: "form-control input-lg",
+          placeholder: t("users.email") %>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <%= f.password_field :password, class: "form-control input-lg",
+              placeholder: t("users.password") %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, class: "form-control input-lg",
+              placeholder: t("users.password_confirm") %>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <%= f.submit yield(:button_text), class: "btn btn-theme btn-block btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

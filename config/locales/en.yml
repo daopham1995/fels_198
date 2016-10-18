@@ -19,6 +19,8 @@ en:
   logout: Logout
   manage_category: "Manage category"
   manage_user: "Manage user"
+  save_change: Save Change
+  password_invalid: Password Invalid
 
   sessions:
     new:
@@ -43,9 +45,12 @@ en:
     category_created: "Category deleted!"
     create_category_success: "Category created successfully"
   users:
+    edit: Edit Profile
+    profile_updated: Profile updated
     name: name
     email: Email
     password: Password
+    current_password: Current Password
     password_confirm: Password_confirmation
     create_account: Create my account
     signup: Signup
@@ -53,6 +58,7 @@ en:
     show:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
+    guest: Guest
   admin:
     users:
       index:

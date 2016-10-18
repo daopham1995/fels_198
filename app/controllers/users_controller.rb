@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:create, :new]
-  before_action :find_user, only: :show
+  before_action :find_user, except: [:index, :new, :create]
+  before_action :valid_user, only: [:edit, :update]
+
+  def show
+  end
 
   def new
     @user = User.new
@@ -17,7 +21,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render "edit"
+    end
   end
 
   private
@@ -30,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit :name, :email, :password, 
+    params.require(:user).permit :name, :email, :password, :avatar,
       :password_confirmation 
   end
 
