@@ -15,6 +15,13 @@ class Word < ApplicationRecord
 
   enum levels: [:easy, :normal, :hard]
 
+  scope :filter_by_category, -> category_id{where category_id: 
+    category_id if category_id.present?}
+  scope :filter_by_level, -> level{where levels: level if level.present? }
+  scope :all_word, -> user_id{}
+  scope :learned, -> user_id{where(Settings.sql.word_learned, user_id)}
+  scope :not_learned, -> user_id{where(Settings.sql.word_not_learned, user_id)}
+
   private
 
   def must_have_two_answer

@@ -73,19 +73,16 @@ en:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
     guest: Guest
-  lesson:
-    view: View
-    status:
-      unfinish: unfinish
-      finish: finish
-    category: Categoty
-    level: level
-    duration: Duration
-    question_count: question_count
-    status: Status
-    score: score
-    action: Action
-
+  words:
+    word:
+    index:
+      title: "Word List"
+  shared:
+    filter_form:
+      filter: "Filter"
+      all_category: "all category"
+      all_level: "all level"
+      categoy: "Category"
   admin:
     users:
       index:

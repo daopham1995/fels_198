@@ -3,5 +3,16 @@ per_page_categories: 5
 avatar_size: "100x100"
 icon_size: "50x50"
 num_my_lessons: 10
-per_page_words: 20
+per_page_words: 10
 number_of_answer: 3
+status:
+  Learned: learned
+  Not_learned: not_learned
+  All: all_word
+sql:
+  word_learned: "id in (select r.word_id 
+    from results r join lessons l 
+    on r.lesson_id = l.id where l.user_id = ?)"
+  word_not_learned: "id not in (select r.word_id 
+    from results r join lessons l 
+    on r.lesson_id = l.id where l.user_id =? )"
