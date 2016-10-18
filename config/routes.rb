@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  resources :users, only: [:show, :create, :new]
+  resources :users, except: [:index, :destroy]
 
   namespace :admin do
     resources :users, only: [:index, :destroy, :show]
