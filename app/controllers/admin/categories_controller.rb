@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
-  before_action :find_category, only: [:destroy, :show]
+  before_action :find_category, except: [:index, :new, :create]
 
   def index
     @categories = Category.paginate page: params[:page],
@@ -32,6 +32,18 @@ class Admin::CategoriesController < ApplicationController
   def show
     @words = @category.words .paginate page: params[:page],
       per_page: Settings.per_page_words
+  end
+
+  def edit
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "flash.category_updated_success"
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
   end
 
   private
