@@ -46,6 +46,8 @@ en:
     category_created: "Category deleted!"
     create_category_success: "Category created successfully"
   users:
+    follow: follow
+    unfollow: Unfollow
     edit: Edit Profile
     profile_updated: Profile updated
     name: name
