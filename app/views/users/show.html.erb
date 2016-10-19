@@ -1,14 +1,26 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <%= link_to t(".link_word_list"), "#", class: "btn btn-primary"%>
-    <%= link_to t(".link_do_lesson"), "#", class: "btn btn-primary"%>
-  </div>
+<div class="content col-md-8 col-md-offset-2" >
+  <% if current_user.current_user? @user %>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <h1>
+            <%= @user.name %>
+          </h1>
+        </section>
+      </aside>
+      <div class="col-md-8">
+        <%= link_to t(".link_word_list"), "#", class: "btn btn-primary"%>
+        <%= link_to t(".link_do_lesson"), "#", class: "btn btn-primary"%>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-md-6 col-md-offset-4">
+      <%= image_tag @user.avatar, class: "media-left", size: Settings.avatar_size %>
+      <h4><%= @user.name %></h4>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+      <%= render "follow_form" %>
+    </div>
+  <% end %>
 </div>
