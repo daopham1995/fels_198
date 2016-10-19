@@ -26,8 +26,9 @@
         <% if logged_in? %>
           <%= link_to edit_user_path(current_user), class: "navbar-brand" do %>
             <%= image_tag(current_user.avatar, size: Settings.avatar_size) %>
-            <%= current_user.name %>
+            <h4><%= current_user.name %></h4>
           <% end %>
+          <%= render "shared/stats" %>
         <% else %>
           <%= link_to login_path, class: "navbar-brand" do %>
             <%= image_tag("guest.png", size: Settings.avatar_size) %>

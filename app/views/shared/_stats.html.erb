@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <%= link_to relationships_path user_id: current_user, relationship: "following" do %>
+    <strong id="following" class="stat">
+      <%= current_user.following.count %>
+    </strong>
+    following
+  <% end %>
+  <%= link_to relationships_path user_id: current_user, relationship: "followers" do %>
+    <strong id="followers" class="stat">
+      <%= current_user.followers.count %>
+    </strong>
+    followers
+  <% end %>
+</div>

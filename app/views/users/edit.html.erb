@@ -16,6 +16,9 @@
         <%= f.text_field :email, disabled: true, class: "form-control input-lg",
           placeholder: t("users.email") %>
       </div>
+      <div class="form-group">
+        <%= f.file_field :avatar %>
+      </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">

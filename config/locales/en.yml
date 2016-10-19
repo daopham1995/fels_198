@@ -21,6 +21,7 @@ en:
   manage_user: "Manage user"
   save_change: Save Change
   password_invalid: Password Invalid
+  user_fails: Actiob fails
 
   sessions:
     new:
