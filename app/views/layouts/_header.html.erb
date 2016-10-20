@@ -39,6 +39,7 @@
       <div class="navbar-collapse collapse ">
         <ul class="nav navbar-nav">
           <li><%= link_to t("home"), root_path %></li>
+          <li><%= link_to t("learn_lesson"), current_user %></li>
           <li><%= link_to t("about"), root_path(page: :about) %></li>
           <li><%= link_to t("contact"), root_path(page: :contact) %></li>
           <% if logged_in? %>

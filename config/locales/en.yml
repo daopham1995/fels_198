@@ -22,6 +22,7 @@ en:
   save_change: Save Change
   password_invalid: Password Invalid
   user_fails: Actiob fails
+  learn_lesson: Learn lesson
 
   sessions:
     new:
@@ -59,6 +60,7 @@ en:
     signup: Signup
     login_now: Login now
     show:
+      link_my_lesson: "My lesson"
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
     guest: Guest
@@ -81,4 +83,15 @@ en:
         new_category: "Add category"
       new:
         title: "New category"
-        
+  lesson:
+    view: View
+    status:
+      unfinish: unfinish
+      finish: finish
+    category: Categoty
+    level: level
+    duration: Duration
+    question_count: question_count
+    status: Status
+    score: score
+    action: Action
