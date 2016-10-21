@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161012103040) do
     t.string   "duration"
     t.string   "spend_time"
     t.integer  "question_count"
-    t.string   "status"
+    t.integer  "status"
     t.integer  "score"
     t.integer  "category_id"
     t.integer  "user_id"

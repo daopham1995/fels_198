@@ -1,0 +1,13 @@
+<td><%= object.category.name %></td>
+<td><%= object.level.name %></td>
+<td><%= object.duration %></td>
+<td><%= object.question_count %></td>
+<td>
+  <% if object.finish? %>
+    <span class="label label-success"><%= t "lesson.status.finish" %></span>
+  <% else %>
+    <span class="label label-danger"><%= t "lesson.status.unfinish" %></span>
+  <% end %>
+</td>
+<td><%= object.score %></td>
+<td><%= link_to t("lesson.view"), object, class:"btn btn-info" %></td>

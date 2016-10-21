@@ -1,0 +1,17 @@
+<div class="container content" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= @lesson.category.name %>
+    </div>
+    <div class="panel-body">
+
+    <%= form_for @lesson do |f| %>
+      <%= f.fields_for :results do |ff| %>
+        <%= render "result", f: ff %>
+      <% end %>
+    <% end %>
+
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>
