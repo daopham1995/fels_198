@@ -5,18 +5,18 @@
       <div class="row">
           <%= link_to t(".link_my_lesson"), @user, class: "btn btn-danger btn-primary"%>
           <%= link_to t(".link_word_list"), words_path, class: "btn btn-primary"%>
-          <%= link_to t(".link_do_lesson"), "#", class: "btn btn-primary"%>
+          <%= link_to t(".link_do_lesson"), new_lesson_path, class: "btn btn-primary"%>
       </div>
     </div>
     <table class="table">
       <thead>
         <tr>
           <th><%= t "category" %></th>
-          <th><%= t "level" %></th>
+          <th><%= t "lesson.level" %></th>
           <th><%= t "duration" %></th>
           <th><%= t "question_count" %></th>
-          <th><%= t "status" %></th>
           <th><%= t "score" %></th>
+          <th><%= t "status" %></th>
           <th><%= t "action" %></th>
         </tr>
       </thead>
