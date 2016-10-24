@@ -1,0 +1,13 @@
+<% provide :title, t(".title") %>
+<div align="center">
+  <%= link_to t(".add_new_word"), new_admin_word_path,
+    class: "btn btn-primary" %>
+</div>
+<ul class="users">
+  <% @words.each do |word| %>
+    <li>
+      <%= render word %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @words %>

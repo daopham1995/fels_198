@@ -19,6 +19,7 @@ en:
   logout: Logout
   manage_category: "Manage category"
   manage_user: "Manage user"
+  manage_word: "Manage word"
   save_change: Save Change
   password_invalid: Password Invalid
   user_fails: Actiob fails
@@ -36,15 +37,18 @@ en:
   flash:
     login_success: "Welcome to the e-learning app!"
     login_fail: "Invalid email/password combination"
-    find_user_fail: "we can not find user"
+    find_user_fail: "we can not find user!"
     find_category_fail: "we can not find category!"
+    find_word_fail: "we can not find word!"
     logged_in_user: "Please log in."
     error: "error"
     denied_user: "User doesn't have permission to access this page"
     delete_user_success: "Deleted user success!"
     delete_user_fail: "Failed to delete user!"
     delete_category_fail: "Failed to delete category!"
-    category_created: "Category deleted!"
+    category_created: "Category created!"
+    word_created_success: "Word created"
+    word_created_fail: "Failed to create word"
     create_category_success: "Category created successfully"
   users:
     follow: follow
@@ -64,6 +68,18 @@ en:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
     guest: Guest
+  lesson:
+    view: View
+    status:
+      unfinish: unfinish
+      finish: finish
+    category: Categoty
+    level: level
+    duration: Duration
+    question_count: question_count
+    status: Status
+    score: score
+    action: Action
   admin:
     users:
       index:
@@ -83,15 +99,29 @@ en:
         new_category: "Add category"
       new:
         title: "New category"
-  lesson:
-    view: View
-    status:
-      unfinish: unfinish
-      finish: finish
-    category: Categoty
-    level: level
-    duration: Duration
-    question_count: question_count
-    status: Status
-    score: score
-    action: Action
+      show:
+        add_new_word: "Add new word in "
+    words:
+      form:
+       new_word: "Add word"
+       add_new_word: "Add new word"
+       more_answer: "More answer"
+       level_normal: "Normal"
+       level_easy: "Easy"
+       level_hard: "Hard"
+      word:
+        time_default: "%Y/%m/%d"
+      index:
+        title: "All word"
+      new:
+        title: "New word"
+      answer_fields:
+        remove_answer: remove
+  error:
+    answer_nil: "hasn't been chosen!"
+    answer_more_than_2: "no more than 1"
+    answer_size: "must have 2 answer"
+  level:
+    normal: "Normal"
+    easy: "Easy"
+    hard: "Hard"

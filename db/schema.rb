@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20161012103040) do
 
   create_table "words", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "question"
-    t.string   "level"
+    t.integer  "levels"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

@@ -3,3 +3,5 @@ per_page_categories: 5
 avatar_size: "100x100"
 icon_size: "50x50"
 num_my_lessons: 10
+per_page_words: 20
+number_of_answer: 3
