@@ -1,0 +1,10 @@
+<%= form_for admin_words_path, method: :get, remote: true do |f| %>
+  <div class="col-md-4">
+    <%= text_field_tag :name, params[:name],class: "form-control", 
+      placeholder: t(".username") %>
+  </div>
+  
+  <div class="col-md-1">
+    <%= f.submit t(".find"), class: "btn btn-info" %>
+  </div>
+<% end %>

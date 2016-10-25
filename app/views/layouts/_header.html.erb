@@ -7,19 +7,13 @@
             <li><%= t "title" %></li>
           </ul>
         </div>
-        <div class="col-md-6">
-          <div id="sb-search" >
-            <%= form_for :search do |f| %>
-              <%= f.text_field :search, class: "sb-search-input",
-                placeholder: t("search_holder") %>
-              <%= f.submit :Search, class: "hidden sb-search-input" %>
-            <% end %>
-          </div>
+        <div class="col-md-6" align="right">
+          <%= image_tag( "http://railsgirls.com/images/hanoi/framgia_logo.png", 
+            size: Settings.logo_size) %>
         </div>
       </div>
     </div>
   </div>  
-  
   <div class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
@@ -28,7 +22,9 @@
             <%= image_tag(current_user.avatar, size: Settings.avatar_size) %>
             <h4><%= current_user.name %></h4>
           <% end %>
-          <%= render "shared/stats" %>
+          <% unless current_user.admin? %>
+            <%= render "shared/stats" %>
+          <% end %>
         <% else %>
           <%= link_to login_path, class: "navbar-brand" do %>
             <%= image_tag("guest.png", size: Settings.avatar_size) %>
@@ -39,15 +35,16 @@
       <div class="navbar-collapse collapse ">
         <ul class="nav navbar-nav">
           <li><%= link_to t("home"), root_path %></li>
-          <li><%= link_to t("learn_lesson"), current_user %></li>
-          <li><%= link_to t("about"), root_path(page: :about) %></li>
-          <li><%= link_to t("contact"), root_path(page: :contact) %></li>
+          <li><%= link_to t("about"), page_path(page: :about) %></li>
+          <li><%= link_to t("contact"), page_path(page: :contact) %></li>
           <% if logged_in? %>
             <li><%= link_to t("logout"), logout_path, method: "delete" %></li>
             <% if current_user.admin? %>
               <li><%= link_to t("manage_category"), admin_categories_path %></li>
               <li><%= link_to t("manage_user"), admin_users_path %></li>
               <li><%= link_to t("manage_word"), admin_words_path %></li>
+            <% else %>
+              <li><%= link_to t("learn_lesson"), current_user %></li>
             <% end %>
           <% else %>
             <li><%= link_to t("login"), login_path %></li>

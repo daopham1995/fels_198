@@ -26,6 +26,13 @@ en:
   learn_lesson: Learn lesson
   confirm_message: Are you sure?
 
+  static_pages:
+    home:
+      hello: "Welcome to framgia e-learning system, enjoy learning"
+      description: "eLearning is learning through electronic technologies 
+        to access educational curriculum outside of a traditional classroom 
+        eLearning give you experience about online learning, internet learning 
+        and many others. Hope you enjoy this learning website "
   sessions:
     new:
       title: "Log in"
@@ -92,6 +99,9 @@ en:
         created_at: "Created at:"
         delete: "Delete"
         ask_before_delete: "You sure?"
+      search_user:
+        username: "username"
+        find: "Find"
     categories:
       index:
         title: "All category"
@@ -101,6 +111,8 @@ en:
       category:
         ask_before_delete: "You sure?"
         update: "update"
+        time: "%{duration} minutes"
+        duration: "Duration:"
       form:
         new_category: "Submit"
       new:
