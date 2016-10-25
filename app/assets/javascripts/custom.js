@@ -1,15 +1,15 @@
-$("document").ready(function(){
+$(document).on("turbolinks:load", function() {
   $("#button-checkbox").click(function(){
     $value = $(this).attr("value");
     if($value == "0"){
-      $(this).next().next().prop('checked', true);
+      $(this).next().next().prop("checked", true);
       $(this).attr("value","1");
       $(this).attr("class","btn btn-info");
       $("#button-checkbox i").attr("class",
         "state-icon glyphicon glyphicon-check");
     }
     else if($value == "1"){
-      $(this).next().next().prop('checked', false);
+      $(this).next().next().prop("checked", false);
       $(this).attr("value","0");
       $(this).attr("class","btn btn-default");
       $("#button-checkbox i").attr("class",
@@ -18,12 +18,17 @@ $("document").ready(function(){
   });
 
   $("#answer_field").on("click", ".remove_fields", function(event){
-    if(check_default_answer()){
-      $(this).prev("input[type=hidden]").val("1");
-      $(this).parent().parent().hide();
-      change_number_answer(0);
+    var temp=$(this);
+    if(remove_true_answer(temp)){
+      if(check_default_answer()){
+        $(this).prev("input[type=hidden]").val("1");
+        $(this).parent().parent().hide();
+        change_number_answer(0);
+      }else{
+        alert("Word must have more 2 answer!");
+      }
     }else{
-      alert("Word must have more 2 answer");
+      alert("Can't remove true answer!");
     }
     event.preventDefault();
   });
@@ -53,4 +58,12 @@ $("document").ready(function(){
       return true;
     }
   };
+
+  function remove_true_answer(temp) {
+    if($(temp).parent().prev().find(".check_box").is(":checked")){
+      return false;
+    }else{
+      return true;
+    }
+  }
 });

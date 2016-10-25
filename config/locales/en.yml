@@ -46,9 +46,14 @@ en:
     delete_user_success: "Deleted user success!"
     delete_user_fail: "Failed to delete user!"
     delete_category_fail: "Failed to delete category!"
+    delete_category_success: Deleted category success!
+    delete_word_success: "Deleted word success!"
+    delete_word_fail: "Failed to delete word!"
     category_created: "Category created!"
+    category_updated_success: "Category updated success!"
     word_created_success: "Word created"
     word_created_fail: "Failed to create word"
+    word_updated_success: "Word updated!"
     create_category_success: "Category created successfully"
   users:
     follow: follow
@@ -80,10 +85,12 @@ en:
     status: Status
     score: score
     action: Action
+
   admin:
     users:
       index:
         title: "All user"
+      user:
         created_at: "Created at:"
         delete: "Delete"
         ask_before_delete: "You sure?"
@@ -95,28 +102,32 @@ en:
         add_new_category: "Add new category"
       category:
         ask_before_delete: "You sure?"
+        update: "update"
       form:
-        new_category: "Add category"
+        new_category: "Submit"
       new:
         title: "New category"
       show:
         add_new_word: "Add new word in "
+      edit:
+        title: "Edit category"
     words:
       form:
-       new_word: "Add word"
+       submit: "Submit"
        add_new_word: "Add new word"
        more_answer: "More answer"
-       level_normal: "Normal"
-       level_easy: "Easy"
-       level_hard: "Hard"
       word:
         time_default: "%Y/%m/%d"
+        ask_before_delete: "You sure?"
       index:
         title: "All word"
       new:
         title: "New word"
       answer_fields:
         remove_answer: remove
+      edit:
+        title: "Edit word!"
+        update_word: "Update"
   error:
     answer_nil: "hasn't been chosen!"
     answer_more_than_2: "no more than 1"
@@ -125,3 +136,16 @@ en:
     normal: "Normal"
     easy: "Easy"
     hard: "Hard"
+    
+  lesson:
+    view: View
+    status:
+      unfinish: unfinish
+      finish: finish
+    category: Categoty
+    level: level
+    duration: Duration
+    question_count: question_count
+    status: Status
+    score: score
+    action: Action

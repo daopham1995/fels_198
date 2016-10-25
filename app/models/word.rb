@@ -1,5 +1,5 @@
 class Word < ApplicationRecord
-  belongs_to :category, dependent: :destroy
+  belongs_to :category
   
   has_many :answers, inverse_of: :word, dependent: :destroy
   has_many :results, dependent: :destroy
@@ -11,7 +11,7 @@ class Word < ApplicationRecord
 
   accepts_nested_attributes_for :answers,
     allow_destroy: true,
-    reject_if: proc {|attributes| attributes[:content].blank?}
+    reject_if: lambda {|attributes| attributes[:content].blank?}
 
   enum levels: [:easy, :normal, :hard]
 

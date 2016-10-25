@@ -9,8 +9,12 @@
     <%= word.levels %>
   </div>
   <div class="col-md-2">
-    <%= link_to t(".delete"), "#",
+    <%= link_to t(".delete"), admin_word_path(word),
       class: "btn btn-xs btn-danger",method: :delete,
       data: {confirm: t(".ask_before_delete")} %>
+  </div>
+  <div class="col-md-2">
+    <%= link_to t(".update"), edit_admin_word_path(word),
+      class: "btn btn-xs btn-warning" %>
   </div>
 </li>
