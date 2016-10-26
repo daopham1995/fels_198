@@ -33,21 +33,21 @@ ActiveRecord::Schema.define(version: 20161012103040) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "duration"
+    t.integer  "question_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "lessons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "duration"
     t.string   "spend_time"
-    t.integer  "question_count"
     t.integer  "status"
     t.integer  "score"
     t.integer  "category_id"
     t.integer  "user_id"
     t.integer  "level_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_lessons_on_category_id", using: :btree
     t.index ["level_id"], name: "index_lessons_on_level_id", using: :btree
     t.index ["user_id"], name: "index_lessons_on_user_id", using: :btree
