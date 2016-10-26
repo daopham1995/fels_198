@@ -1,0 +1,26 @@
+<%= form_for words_path, method: :get, remote: true do |f| %>
+  <p><%= t ".category" %></p><br/>
+  <div class="col-md-2">
+    <%= select_tag :category_id, 
+      options_for_select(@view_word.categories, params[:category_id]),
+        include_blank: t(".all_category"), class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= select_tag :levels,
+      options_from_collection_for_select(@view_word.levels, :last, :first, 
+        params[:levels]),
+      include_blank: t(".all_level"),class: "form-control" %>
+  </div>
+  <% Settings.status.each do |key,value| %>
+    <div class="col-md-2">
+      <div class="radio">
+        <%= radio_button_tag :option, value,
+          checked = (params[:option] == value || params[:option].blank?) %>
+        <div class="radio_fix"><%= value %></div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-2">
+    <%= f.submit t(".filter"), class: "btn btn-info" %>
+  </div>
+<% end %>
