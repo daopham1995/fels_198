@@ -1,17 +1,32 @@
 <div class="container content" >
-  <div class="panel panel-default">
+  <div class="panel panel-default col-md-10">
     <div class="panel-heading">
       <%= @lesson.category.name %>
     </div>
     <div class="panel-body">
 
     <%= form_for @lesson do |f| %>
-      <%= f.fields_for :results do |ff| %>
-        <%= render "result", f: ff %>
+      <%= f.hidden_field :duration, value: @deadline %>
+      <%= f.fields_for :results do |builder| %>
+        <%= render "result", f: builder %>
       <% end %>
+      <%= f.submit t("lesson.finish") unless @lesson.finish? %>
     <% end %>
 
     </div>
-    <div class="panel-footer"></div>
+    <div class="panel-footer">
+      <div class="clock col-md-2">
+        <div class="panel panel-primary">
+          <% if @lesson.finish? %>
+            <div class="panel-heading"><%= t "lesson.status.finish" %></div>
+          <% else @lesson.finish? %>
+            <div class="panel-heading"><%= t "lesson.timer" %></div>
+            <div class="panel-body">
+              <div id="timer"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -16,4 +16,13 @@ class Lesson < ApplicationRecord
       self.results.create word_id: w.id
     end
   end
+
+  def update_deadline_and_status
+    update_attributes deadline: (Time.now + category.duration.to_i.minutes),
+      status: Lesson.statuses[:testing]
+  end
+
+  def timeout?
+    Time.zone.now > deadline
+  end
 end

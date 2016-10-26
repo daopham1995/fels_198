@@ -1,4 +1,9 @@
+$(document).on("ready", function(){
+  $counter = setInterval(timer, 1000);
+});
+
 $(document).on("turbolinks:load", function() {
+  prepareClock();
   $("#button-checkbox").click(function(){
     $value = $(this).attr("value");
     if($value == "0"){
@@ -67,3 +72,24 @@ $(document).on("turbolinks:load", function() {
     }
   }
 });
+
+function timer()
+{
+  $secondes--;
+  if ($secondes < 0)
+    {
+      if ($minutes == 0){
+        clearInterval($counter);
+        $("form").submit();
+      }
+      $secondes = 59;
+      $minutes--;
+    }
+ $("#timer").html($minutes + ":" + $secondes);
+}
+
+function prepareClock(){
+  $duration = parseInt($("#lesson_duration").attr("value"));
+  $minutes = Math.floor($duration/60);
+  $secondes = $duration - ($minutes * 60);
+}

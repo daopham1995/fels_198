@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root "static_pages#show", page: "home"
-  get "/pages/:page" => "static_pages#show"
+  get "/pages/:page" => "static_pages#show" ,as: :page
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users, except: [:index, :destroy]
   resources :relationships, only: [:create, :destroy, :index]
-  resources :lessons, only: [:show, :new, :create]
+  resources :lessons, except: [:index, :destroy]
   resources :words, only: :index
 
   namespace :admin do

@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_lesson, only: [:show]
+  before_action :find_lesson, only: [:show, :update]
 
   def new
     @lesson = Lesson.new
@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new lesson_params
     if @lesson.save
+      @lesson.start!
       list_word = Word.by_category @lesson.category_id, @lesson.category.question_count
       @lesson.add_results list_word
       flash[:success] = t "lesson.created"
@@ -20,7 +21,21 @@ class LessonsController < ApplicationController
   end
 
   def show
+    if @lesson.start?
+      @lesson.update_deadline_and_status
+    elsif @lesson.testing? && @lesson.timeout?
+      @lesson.finish!
+    end 
+    @deadline = (@lesson.deadline - Time.now).to_i
+  end
 
+  def update
+    unless @lesson.finish?
+      @lesson.assign_attributes lesson_params.merge score: count_score,
+        status: Lesson.statuses[:finish]
+      @lesson.save
+      redirect_to current_user
+    end
   end
 
   private
@@ -34,6 +49,11 @@ class LessonsController < ApplicationController
 
   def lesson_params
     params.require(:lesson).permit :user_id, :category_id, :level_id,
-      :duration, :question_count, results_attributes: [:id, :answer_id, :is_correct]
+      results_attributes: [:id, :answer_id, :is_correct]
+  end
+
+  def count_score
+    @lesson.results.select{|result| result.answer &&
+      result.answer.is_correct?}.size
   end
 end

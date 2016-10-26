@@ -1,10 +1,10 @@
 <td><%= object.category.name %></td>
 <td><%= object.level.name %></td>
-<td><%= object.duration %></td>
-<td><%= object.question_count %></td>
+<td><%= object.category.duration %></td>
+<td><%= object.category.question_count %></td>
 <% if object.finish? %>
   <td>
-    <%= object.score %>/<%= object.question_count %>
+    <%= object.score %>/<%= object.category.question_count %>
   </td>
   <td>
     <span class="label label-success">
