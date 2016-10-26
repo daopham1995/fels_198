@@ -1,5 +1,6 @@
 size: 50
 per_page_categories: 5
+per_page_lesson: 10
 avatar_size: "100x100"
 icon_size: "50x50"
 num_my_lessons: 10

@@ -1,0 +1,18 @@
+<div class="container content" >
+  <div class="col-md-6 col-md-offset-2">
+    <%= form_for @lesson, url: lessons_path do |f| %>
+      <hr class="colorgraph">
+      <%= render "shared/error_messages", object: @lesson %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <div class="form-group">
+        <%= f.label t("lesson.category"), class: "label label-default" %>
+        <%= f.select :category_id, @supports.categories, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label t("lesson.level"), class: "label label-default" %>
+        <%= f.select :level_id, @supports.levels, class: "form-control" %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

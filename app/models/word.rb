@@ -1,5 +1,6 @@
 class Word < ApplicationRecord
   belongs_to :category
+  scope :by_category, -> (id, count) {where(category_id: id).limit count}
   
   has_many :answers, inverse_of: :word, dependent: :destroy
   has_many :results, dependent: :destroy
@@ -21,6 +22,11 @@ class Word < ApplicationRecord
   scope :all_word, -> user_id{}
   scope :learned, -> user_id{where(Settings.sql.word_learned, user_id)}
   scope :not_learned, -> user_id{where(Settings.sql.word_not_learned, user_id)}
+
+  def has_correct_answer?
+    correct_answer = answers.is_correct
+    correct_answer.size > 0 ? true : false
+  end
 
   private
 
