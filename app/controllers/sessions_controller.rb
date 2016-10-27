@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       remember user
-      redirect_to user
+      if user.admin?
+        redirect_to admin_categories_path
+      else
+        redirect_to user
+      end  
     else
       flash[:danger] = t "flash.login_fail"
       render :new

@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  scope :find_by_username, -> name{where Settings.sql.find_user, "%#{name}%"}
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 

@@ -1,5 +1,12 @@
 <%= form_for [:admin, @category] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :duration %>
+  <%= f.select :duration, options_for_select(Settings.duration, 
+    @category.duration), {}, class: "form-control" %>
+  <%= f.label :number_question %>
+  <%= f.select :question_count, options_for_select(
+    Settings.question_count, @category.question_count), 
+    {}, class: "form-control" %>
   <%= f.submit t(".new_category"), class: "btn btn-primary" %>
 <% end %>
