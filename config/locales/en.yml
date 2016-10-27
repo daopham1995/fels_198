@@ -81,6 +81,8 @@ en:
       link_word_list: "Word List"
       link_do_lesson: "Do lesson"
     guest: Guest
+    index:
+      title: "All user"
   words:
     word:
     index:
@@ -91,6 +93,9 @@ en:
       all_category: "all category"
       all_level: "all level"
       categoy: "Category"
+  relastionships:
+    index:
+      users: "Users"
   admin:
     users:
       index:

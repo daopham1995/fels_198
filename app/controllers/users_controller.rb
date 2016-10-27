@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   before_action :find_user, except: [:index, :new, :create]
   before_action :valid_user, only: [:edit, :update]
 
+  def index
+    @users = User.all.paginate page: params[:page],
+      per_page: Settings.per_page_users
+  end
+
   def show
     @lessons = current_user.lessons.desc.paginate page: params[:page],
       per_page: Settings.users_show_lessons
