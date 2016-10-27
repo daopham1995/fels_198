@@ -1,7 +1,16 @@
 <% provide :title, @category.name %>
 <h1><%= @category.name %></h1>
-<%= link_to t(".add_new_word") + @category.name, 
-  new_admin_category_word_path(@category.id), class: "btn btn-primary" %>
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to t(".add_new_word") + @category.name, 
+      new_admin_category_word_path(@category.id), class: "btn btn-primary" %>
+  </div>
+  <div class="col-md-6" align="right">
+    <%= link_to t(".delete"), admin_category_path(@category.id),
+      class: "btn btn-danger",method: :delete,
+      data: {confirm: t(".ask_before_delete")} %>
+  </div>
+</div>
 <ul class="users">
   <% @words.each do |word| %>
     <li>

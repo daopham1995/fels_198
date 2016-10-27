@@ -5,13 +5,11 @@
   <div class="col-md-2">
     <%= t ".duration" %><%= t ".time", duration: category.duration %>
   </div>
+  <div class="col-md-2">
+    <%= t ".number_question" %><%= category.question_count %>
+  </div>
   <div class="col-md-4">
     <%= t ".created_at" %><%= l category.created_at, format: :long %>
-  </div>
-  <div class="col-md-2">
-    <%= link_to t(".delete"), admin_category_path(category),
-      class: "btn btn-xs btn-danger",method: :delete,
-      data: {confirm: t(".ask_before_delete")} %>
   </div>
   <div class="col-md-2">
     <%= link_to t(".update"), edit_admin_category_path(category),

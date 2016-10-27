@@ -9,6 +9,7 @@ class Word < ApplicationRecord
   validates :question, presence: true
   validate :check_answer_nil
   validate :must_have_two_answer
+  validate :check_before_update, on: :update
 
   accepts_nested_attributes_for :answers,
     allow_destroy: true,
@@ -35,10 +36,19 @@ class Word < ApplicationRecord
   end
 
   def check_answer_nil
-    correct_answer = answers.select {|answers| answers.is_correct?}
+    correct_answer = 
+      answers.select{|answers|answers.is_correct? && !answers.marked_for_destruction?}
     errors.add :correct_answer,
       I18n.t("error.answer_nil") if correct_answer.empty?
     errors.add :correct_answer,
       I18n.t("error.answer_more_than_2") if correct_answer.size > 1
+  end
+
+  def check_before_update
+    answers.each do |answer|
+      if answer.is_correct? && answer.marked_for_destruction?
+        errors.add :correct_answer, I18n.t("error.delete_true_answer")
+      end
+    end
   end
 end
