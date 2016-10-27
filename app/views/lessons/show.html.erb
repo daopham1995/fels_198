@@ -19,6 +19,10 @@
         <div class="panel panel-primary">
           <% if @lesson.finish? %>
             <div class="panel-heading"><%= t "lesson.status.finish" %></div>
+            <div class="panel-body">
+              <%= t "lesson.score" %>:
+              <%= @lesson.score %>/<%= @lesson.category.question_count %>
+            </div>
           <% else @lesson.finish? %>
             <div class="panel-heading"><%= t "lesson.timer" %></div>
             <div class="panel-body">

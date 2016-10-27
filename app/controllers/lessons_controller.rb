@@ -31,9 +31,9 @@ class LessonsController < ApplicationController
 
   def update
     unless @lesson.finish?
-      @lesson.assign_attributes lesson_params.merge score: count_score,
-        status: Lesson.statuses[:finish]
+      @lesson.assign_attributes lesson_params.merge status: Lesson.statuses[:finish]
       @lesson.save
+      @lesson.update_attributes score: count_score
       redirect_to current_user
     end
   end

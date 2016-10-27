@@ -5,11 +5,25 @@
     </strong>
     <%= f.object.word.question %>
   </li>
-  <% f.object.word.answers.each do |a| %>
-    <li class="list-group-item">
-      <%= f.radio_button :answer_id, a.id,
-        checked: f.object.answer_id == a.id, disabled: f.object.lesson.finish? %>
-      <%= a.content %>
-    </li>
+  <% f.object.word.answers.each do |answer| %>
+    <% if item_correct? f.object, answer %>
+      <li class="list-group-item list-group-item-success">
+        <%= f.radio_button :answer_id, answer.id,
+          checked: f.object.answer_id == answer.id, disabled: true%>
+        <%= answer.content %>
+      </li>
+    <% elsif item_incorrect? f.object, answer %>
+      <li class="list-group-item list-group-item-danger">
+        <%= f.radio_button :answer_id, answer.id,
+          checked: f.object.answer_id == answer.id, disabled: true%>
+        <%= answer.content %>
+      </li>
+    <% else %>
+      <li class="list-group-item ">
+        <%= f.radio_button :answer_id, answer.id,
+          checked: f.object.answer_id == answer.id, disabled: false%>
+        <%= answer.content %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
