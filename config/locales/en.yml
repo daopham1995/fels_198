@@ -25,6 +25,10 @@ en:
   user_fails: Actiob fails
   learn_lesson: Learn lesson
   confirm_message: Are you sure?
+  notification: Notification
+  copyright: © CDteam 2016 All right reserved.
+  ago: ago.
+  enter_now: Enter now
 
   static_pages:
     home:
@@ -178,3 +182,6 @@ en:
     action: Action
     created: New lesson has created
     finish: Finish
+  activity:
+    view_all: View all
+    unknow: unknow

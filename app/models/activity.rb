@@ -5,4 +5,5 @@ class Activity < ApplicationRecord
 
   validates :target_id, presence: true
   validates :user, presence: true
+  scope :by_user, -> ids {where(user_id: ids).order created_at: :desc}
 end
