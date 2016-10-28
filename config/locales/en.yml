@@ -190,6 +190,7 @@ en:
     created: New lesson has created
     finish: Finish
     submit: submit
+    not_enough_word: Sorry! Not enough word
   activity:
     view_all: View all
     unknow: unknow

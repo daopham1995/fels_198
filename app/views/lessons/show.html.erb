@@ -23,10 +23,14 @@
               <%= t "lesson.score" %>:
               <%= @lesson.score %>/<%= @lesson.category.question_count %>
             </div>
-          <% else @lesson.finish? %>
+          <% else %>
             <div class="panel-heading"><%= t "lesson.timer" %></div>
             <div class="panel-body">
               <div id="timer"></div>
+            </div>
+            <div class="panel-heading"><%= t "lesson.process" %></div>
+            <div class="panel-body">
+              <div id="process"></div>
             </div>
           <% end %>
         </div>

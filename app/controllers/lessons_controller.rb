@@ -9,17 +9,17 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new lesson_params
-    if @lesson.save
+    if @lesson.create_new_lesson
       @lesson.start!
-      list_word = Word.by_category @lesson.category_id, @lesson.category.question_count
-      @lesson.add_results list_word
       flash[:success] = t "lesson.created"
       redirect_to current_user
     else
+      @supports = Supports::Lesson.new
+      flash[:danger] = t "lesson.not_enough_word"
       render :new
     end
   end
-
+ 
   def show
     if @lesson.start?
       @lesson.update_deadline_and_status
@@ -30,7 +30,13 @@ class LessonsController < ApplicationController
   end
 
   def update
-    unless @lesson.finish?
+    if params[:select_answer] && !@lesson.finish?
+      data = params[:select_answer];
+      Result.find_by_id(data[:result]).update_attributes answer_id: data[:answer]
+      respond_to do |format|
+        format.json {render json: {status: :saved}}
+      end
+    elsif !@lesson.finish?
       @lesson.assign_attributes lesson_params.merge status: Lesson.statuses[:finish]
       @lesson.save
       @lesson.update_attributes score: count_score

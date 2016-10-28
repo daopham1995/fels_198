@@ -1,8 +1,11 @@
 <% provide :title, t(".title") %>
-<h1><%= t ".title" %></h1>
-<div class="row">
-  <%= render "shared/filter_form" %>
+<div class="container content">
+  <%= render "shared/button_action", user: current_user %>
+  <hr class="colorgraph clear">
+  <div class="row clear ">
+    <%= render "shared/filter_form" %>
+  </div>
+  <% if @words.any? %>
+    <%= render "all_word" %>
+  <% end %>
 </div>
-<% if @words.any? %>
-  <%= render "all_word" %>
-<% end %>

@@ -11,10 +11,10 @@ class ActivitiesController < ApplicationController
 
   private
   def json_notify
-    data = @activities.collect do |activity|
+    data = @activities.take(10).collect do |activity|
       {user: activity.user.name,
         action: activity.types,
-        target: lesson_name(activity.target_id)}
+        target: target_name(activity)}
     end
     data.to_json
   end
@@ -27,5 +27,13 @@ class ActivitiesController < ApplicationController
   def lesson_name id
     lesson = Lesson.find_by_id id
     lesson.nil? ? t("activity.unknow") : lesson.category.name
+  end
+
+  def target_name activity
+    if activity.follow? || activity.unfollow?
+      user_name activity.target_id
+    elsif activity.start_lesson?
+      lesson_name activity.target_id
+    end
   end
 end
