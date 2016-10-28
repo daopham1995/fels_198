@@ -1,4 +1,6 @@
 class Lesson < ApplicationRecord
+  include CreateActivity
+
   enum status: [:start, :testing, :finish]
   scope :desc, ->{order created_at: :desc}
 
@@ -10,6 +12,8 @@ class Lesson < ApplicationRecord
   has_many :words, through: :results
 
   accepts_nested_attributes_for :results
+
+  after_create :create_activities
 
   def add_results list_word
     list_word.each do |w|
@@ -24,5 +28,10 @@ class Lesson < ApplicationRecord
 
   def timeout?
     Time.zone.now > deadline
+  end
+
+  private
+  def create_activities
+    create_activity Activity.types[:start_lesson], id, user_id
   end
 end

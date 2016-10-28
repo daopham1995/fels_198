@@ -1,8 +1,15 @@
 <% provide :title, @title %>
 <div class="container content">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6">  
       <h3><%= @title %></h3>
+    </div>
+    <div class="col-md-6" align="right">  
+      <h3><%= link_to t(".users"), users_path %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
       <% if @users.any? %>
         <ul class="users follow">
           <%= render @users %>
