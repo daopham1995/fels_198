@@ -24,6 +24,21 @@
           <% end %>
           <% unless current_user.admin? %>
             <%= render "shared/stats" %>
+            <ul class="notification">
+              <li class="dropdown">
+                <%= link_to t(:notification), "#", id: :notification,
+                  url: activities_path, "data-toggle": :dropdown %>
+                <b class="caret"></b>
+                <ul class="dropdown-menu">
+                  <span id="notify" ></span>
+                  <li>
+                    <span class="label">
+                      <%= link_to t("activity.view_all"), activities_path %>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           <% end %>
         <% else %>
           <%= link_to login_path, class: "navbar-brand" do %>
@@ -35,10 +50,7 @@
       <div class="navbar-collapse collapse ">
         <ul class="nav navbar-nav">
           <li><%= link_to t("home"), root_path %></li>
-          <li><%= link_to t("about"), page_path(page: :about) %></li>
-          <li><%= link_to t("contact"), page_path(page: :contact) %></li>
           <% if logged_in? %>
-            <li><%= link_to t("logout"), logout_path, method: "delete" %></li>
             <% if current_user.admin? %>
               <li><%= link_to t("manage_category"), admin_categories_path %></li>
               <li><%= link_to t("manage_user"), admin_users_path %></li>
@@ -46,6 +58,7 @@
             <% else %>
               <li><%= link_to t("learn_lesson"), current_user %></li>
             <% end %>
+            <li><%= link_to t("logout"), logout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to t("login"), login_path %></li>
           <% end %>

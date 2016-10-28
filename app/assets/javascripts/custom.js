@@ -3,6 +3,7 @@ $(document).on("ready", function(){
 });
 
 $(document).on("turbolinks:load", function() {
+  notification();
   prepareClock();
   $("#button-checkbox").click(function(){
     $value = $(this).attr("value");
@@ -92,4 +93,28 @@ function prepareClock(){
   $duration = parseInt($("#lesson_duration").attr("value"));
   $minutes = Math.floor($duration/60);
   $secondes = $duration - ($minutes * 60);
+}
+
+
+function createNotification(data){
+  activity =
+    "<li>"+
+      "<span class='label label-default'>"+ data.user +"</span>"+
+      "<span class='label label-info'>"+ data.action +"</span>"+
+      "<span class='label label-default'>"+ data.target +"</span>"+
+    "</li>";
+  return activity;
+}
+
+function notification(){
+  $("#notification").click(function(){
+    $url = $(this).attr("url");
+    $.ajax($url,"json").success(function(data){
+      list = "";
+      for(i=0; i<data.length; i++){
+        list += createNotification(data[i]);
+      }
+      $("#notify").html(list);
+    });
+  });
 }

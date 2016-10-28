@@ -5,7 +5,11 @@
         <h2><span class="highlight"><%= t ".hello" %></span></h2>          
         <p><%= t ".description" %></p>
         <div class="join-btn">
-          <%= link_to "Join Now", new_user_path, class: "btn btn-theme btn-lg" %>
+          <% if logged_in? %>
+            <%= link_to t("enter_now"), current_user, class: "btn btn-theme btn-lg" %>
+          <% else %>
+            <%= link_to t("join_now"), new_user_path, class: "btn btn-theme btn-lg" %>
+          <% end %>
         </div>
       </div>
     </div>    

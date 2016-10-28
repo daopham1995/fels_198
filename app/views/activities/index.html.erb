@@ -1,0 +1,27 @@
+<% provide :title, t(:notification) %>
+<div class="container content" >
+  <div class="col-md-6 col-md-offset-2">
+    <ul class="list-group">
+      <% @activities.each do |activity| %>
+        <li class="list-group-item">
+          <span class="label label-default">
+            <%= activity.user.name %>
+          </span>
+          <span class="label label-info" >
+            <%= activity.types %>
+          </span>
+          <span class="label label-default">
+            <% if activity.follow? || activity.unfollow? %>
+              <%= user_name activity.target_id %>
+            <% elsif activity.start_lesson? %>
+              <%= lesson_name activity.target_id %>
+            <% end %>
+          </span>
+            <%= time_ago_in_words activity.created_at %>
+            <%= t "ago" %>
+        </li>
+      <% end %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>

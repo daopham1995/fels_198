@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:create, :new]
+  before_action :change_to_admin, only: [:show]
   before_action :find_user, except: [:index, :new, :create]
   before_action :valid_user, only: [:edit, :update]
 
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = "Profile updated"
+      flash[:success] = t "users.profile_updated"
       redirect_to @user
     else
       render "edit"
@@ -61,5 +62,9 @@ class UsersController < ApplicationController
 
   def valid_user
     redirect_to root_url unless @user == current_user
+  end
+
+  def change_to_admin
+    redirect_to admin_users_path if current_user.admin?
   end
 end
