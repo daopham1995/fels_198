@@ -107,23 +107,32 @@ en:
       search_user:
         username: "username"
         find: "Find"
+      show:
+        title: "User profile"
+        return: "Return to users page"
+        full_name: "Full name:"
+        email: "Email:"
+        created_at: "Created at:"
+        time_default: "%Y/%m/%d, %H:%M:%S"
     categories:
       index:
         title: "All category"
-        created_at: "Created at:"
-        delete: "Delete"
+        created_at: "Created at: "
         add_new_category: "Add new category"
-      category:
-        ask_before_delete: "You sure?"
+      category: 
         update: "update"
         time: "%{duration} minutes"
         duration: "Duration:"
+        created_at: "Created at: "
+        number_question: "Number question:"
       form:
         new_category: "Submit"
       new:
         title: "New category"
       show:
         add_new_word: "Add new word in "
+        delete: "Delete category"
+        ask_before_delete: "You sure?"
       edit:
         title: "Edit category"
     words:
@@ -147,6 +156,7 @@ en:
     answer_nil: "hasn't been chosen!"
     answer_more_than_2: "no more than 1"
     answer_size: "must have 2 answer"
+    delete_true_answer: "can't delete"
     
   level:
     normal: "Normal"

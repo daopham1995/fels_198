@@ -35,6 +35,7 @@ class Admin::WordsController < ApplicationController
       flash[:success] = t "flash.word_updated_success"
       redirect_to admin_words_path
     else
+      @view_word = Supports::Word.new @word
       render :edit
     end
   end
