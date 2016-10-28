@@ -10,7 +10,7 @@
   <% end %>
   <%= f.label :levels %>  
   <%= f.select :levels, options_for_select(
-    @view_word.levels.collect {|l| l[0]}), {}, class: "form-control" %>
+    @view_word.levels.collect {|l| l[0]}, @word.levels), {}, class: "form-control" %>
   <div id ="answer_field">
     <%= f.fields_for :answers do |builder| %>
       <%= render "answer_fields", f: builder %>

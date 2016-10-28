@@ -4,8 +4,15 @@ class Admin::WordsController < ApplicationController
   before_action :find_word, except: [:index, :new, :create]
 
   def index
-    @words = Word.paginate page: params[:page],
+    @words = if params[:option].present?
+      Word.filter_by_category(params[:category_id])
+        .filter_by_level(params[:levels]).send(params[:option], current_user)
+    else
+      Word.all
+    end
+    @words = @words.paginate page: params[:page],
       per_page: Settings.per_page_words
+    @view_word = Supports::Word.new @words.first
   end
 
   def new

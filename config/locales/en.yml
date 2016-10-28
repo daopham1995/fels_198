@@ -87,6 +87,9 @@ en:
     guest: Guest
     index:
       title: "All user"
+    search_user:
+      username: "username"
+      find: "Find"
   words:
     word:
     index:
@@ -94,7 +97,7 @@ en:
   shared:
     filter_form:
       filter: "Filter"
-      all_category: "all category"
+      all_category: "All category"
       all_level: "all level"
       categoy: "Category"
   relastionships:
@@ -156,6 +159,10 @@ en:
       edit:
         title: "Edit word!"
         update_word: "Update"
+      filter_form:
+        all_category: "All category"
+        all_level: "all level"
+        filter: "Filter"
   error:
     answer_nil: "hasn't been chosen!"
     answer_more_than_2: "no more than 1"
@@ -182,6 +189,7 @@ en:
     action: Action
     created: New lesson has created
     finish: Finish
+    submit: submit
   activity:
     view_all: View all
     unknow: unknow

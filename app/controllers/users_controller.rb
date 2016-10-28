@@ -5,8 +5,17 @@ class UsersController < ApplicationController
   before_action :valid_user, only: [:edit, :update]
 
   def index
-    @users = User.all.paginate page: params[:page],
+    @users = if params[:name].present?
+      User.find_by_username params[:name]
+    else
+      User.all
+    end
+    @users = @users.paginate page: params[:page],
       per_page: Settings.per_page_users
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

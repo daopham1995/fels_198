@@ -6,13 +6,15 @@
       <%= f.hidden_field :user_id, value: session[:user_id] %>
       <div class="form-group">
         <%= f.label t("lesson.category"), class: "label label-default" %>
-        <%= f.select :category_id, @supports.categories, class: "form-control" %>
+        <%= f.select :category_id, @supports.categories, {}, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label t("lesson.level"), class: "label label-default" %>
-        <%= f.select :level_id, @supports.levels, class: "form-control" %>
+        <%= f.select :level_id, @supports.levels, {}, class: "form-control" %>
       </div>
-      <%= f.submit %>
+      <div class="form-group">
+        <%= f.submit t("lesson.submit"), class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>
