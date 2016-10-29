@@ -32,3 +32,6 @@ word_status:
   alphabet: alphabet
   newest_update: newest_update
   all: all_word
+file_format:
+  xls: "xls"
+  csv: "csv"

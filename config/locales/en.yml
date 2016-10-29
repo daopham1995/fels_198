@@ -107,6 +107,8 @@ en:
     users:
       index:
         title: "All user"
+        export_csv: "Export to CSV"
+        export_excel: "Export to Excel"
       user:
         created_at: "Created at:"
         delete: "Delete"
