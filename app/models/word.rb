@@ -23,6 +23,8 @@ class Word < ApplicationRecord
   scope :all_word, -> user_id{}
   scope :learned, -> user_id{where(Settings.sql.word_learned, user_id)}
   scope :not_learned, -> user_id{where(Settings.sql.word_not_learned, user_id)}
+  scope :alphabet, -> user_id{order(question: :desc)}
+  scope :newest_update, -> user_id{order(updated_at: :desc)}
 
   def has_correct_answer?
     correct_answer = answers.is_correct

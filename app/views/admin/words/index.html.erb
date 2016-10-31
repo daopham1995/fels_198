@@ -3,6 +3,11 @@
   <%= link_to t(".add_new_word"), new_admin_word_path,
     class: "btn btn-primary" %>
 </div>
+<div class="row" id="filter_word_form">
+  <form class="form-inline">
+    <%= render "filter_form" %>
+  </form>
+</div>
 <ul class="users">
   <% @words.each do |word| %>
     <li>

@@ -28,3 +28,7 @@ question_count:
   40question: 40
   60question: 60
 logo_size: "140x40"
+word_status:
+  alphabet: alphabet
+  newest_update: newest_update
+  all: all_word
