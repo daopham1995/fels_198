@@ -17,6 +17,7 @@
     <% end %>
     <%= link_to_add_fields t(".more_answer"), f, :answers %>
   </div>
-  <input type="hidden" value="3" class="number_answer">
+  <%= f.hidden_field :number_answer, value: @word.answers.size, 
+    class: "number_answer" %>
   <%= f.submit t(".submit"), class: "btn btn-primary" %>
 <% end %>

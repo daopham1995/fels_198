@@ -16,5 +16,6 @@ Rails.application.routes.draw do
       resources :words, only: :new 
     end 
     resources :words
+    resources :users_data, only: :index
   end
 end

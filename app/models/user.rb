@@ -34,6 +34,15 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    def to_csv
+      CSV.generate do |csv|
+        csv << column_names
+        all.each do |user|
+          csv << user.attributes.values_at(*column_names)
+        end
+      end
+    end
   end
 
   def remember

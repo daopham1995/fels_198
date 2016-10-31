@@ -6,3 +6,13 @@
 <div class="show_user" >
   <%= render "all_user" %>
 </div>
+<div class="row">
+  <div class="col-md-6" align="right">
+    <%= link_to t(".export_csv"), 
+      admin_users_data_path(format: Settings.file_format.csv) %>
+  </div>
+  <div class="col-md-5" >
+    <%= link_to t(".export_execl"), 
+      admin_users_data_path(format: Settings.file_format.xls) %>
+  </div>
+</div>
