@@ -22,15 +22,18 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 3.times do |n|
-  category_name = "Category-#{n+1}"
   level_name = "level-#{n+1}"
-
   level =  Level.create name: level_name, level1: 20, level2: 40, level3: 40
+end
+
+3.times do |n|
+  category_name = "Category-#{n+1}"
+
   category = Category.create name: category_name, duration: 30, question_count: 20
 
   90.times do |n|
     question= "question-#{n+1}"
-    word = Word.create question: question, levels: 1,
+    word = Word.create question: question, levels: (n % 3),
       category_id: category.id
     3.times do |n|
       Answer.create content: "answer-#{n+1}",

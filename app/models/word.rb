@@ -1,6 +1,6 @@
 class Word < ApplicationRecord
   belongs_to :category
-  scope :by_category, -> (id, count) {where(category_id: id).limit count}
+  scope :by_category_and_level, -> (id, count, level) {where(category_id: id, levels: level).limit count}
   
   has_many :answers, inverse_of: :word, dependent: :destroy
   has_many :results, dependent: :destroy

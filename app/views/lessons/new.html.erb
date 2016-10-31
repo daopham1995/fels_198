@@ -1,4 +1,5 @@
 <div class="container content" >
+  <%= render "shared/button_action", user: current_user %>
   <div class="col-md-6 col-md-offset-2">
     <%= form_for @lesson, url: lessons_path do |f| %>
       <hr class="colorgraph">

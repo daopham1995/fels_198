@@ -21,7 +21,7 @@
     <% else %>
       <li class="list-group-item ">
         <%= f.radio_button :answer_id, answer.id,
-          checked: f.object.answer_id == answer.id, disabled: false%>
+          checked: f.object.answer_id == answer.id, disabled: f.object.lesson.finish? %>
         <%= answer.content %>
       </li>
     <% end %>

@@ -5,6 +5,8 @@ $(document).on("ready", function(){
 $(document).on("turbolinks:load", function() {
   notification();
   prepareClock();
+  selectAnswer();
+  showProcess();
   $("#button-checkbox").click(function(){
     $value = $(this).attr("value");
     if($value == "0"){
@@ -117,4 +119,29 @@ function notification(){
       $("#notify").html(list);
     });
   });
+}
+
+function selectAnswer(){
+  $("form .list-word input[type=radio]").click(function(){
+    showProcess();
+    result = $(this).parent().parent().next().attr("value");
+    answer = $(this).attr("value");
+    $.ajax({
+      method: "patch",
+      url: $("form").attr("action"),
+      data: { "select_answer": {"result": result, "answer": answer}}
+    }).done(function( json ) {
+      if (json.status == "saved" ) {
+        alert = "<div class='label label-success select_alert' >auto saved</div>";
+        $("body").append(alert);
+        $(".select_alert").fadeOut(3000);
+      }
+    });
+  });
+}
+
+function showProcess(){
+  all = $("input[type=radio]").size() / 4;
+  select = $("input[type=radio]:checked").size();
+  $("#process").html(select +"/"+ all);
 }
